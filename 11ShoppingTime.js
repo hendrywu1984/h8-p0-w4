@@ -1,9 +1,9 @@
 function shoppingTime(memberId, money) {
   // you can only write your code here!
   var daftarBarang = [['Sweater Uniklooh', 175000],['Casing Handphone', 50000],['Sepatu Stacattu', 1500000],['Baju Zoro', 500000],['Baju H&N', 250000]];
-  daftarBarang = sortBarang(daftarBarang);
+  var daftarBarangNew = sortBarang(daftarBarang);
   
-  return ObjCust(memberId, money, daftarBarang);
+  return ObjCust(memberId, money, daftarBarangNew);
 }
 
 function sortBarang (daftarBarang) {

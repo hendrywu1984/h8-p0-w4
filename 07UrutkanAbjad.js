@@ -4,36 +4,34 @@ function urutkanAbjad(str) {
   //return str.split('').sort().join('');;
 
   //cara manual
-  var hasil = '';
-  var temp = '';
-  var tukar = false;
-  var panjang = str.length
+  var temp = '';
+  var kalimat = [];
+  var hasil = '';
 
-  do {
-    tukar = false;
-    for (var i=0; i < panjang - 1; i++){
-        if (str.charCodeAt(i) > str.charCodeAt(i+1)){
-            var temp = str[i];
-            str[i] = str[i+1];
-console.log(i);
-hasil[i] = str[i+1];
-            str[i+1] = temp;
-hasil[i+1] = temp;
-            tukar = true;
-console.log(hasil);
-        }
-        
-    }
-    panjang--;
-  } while (tukar);
+  for(var i=0; i< str.length; i++) {
+    kalimat.push(str[i]);
+  }
 
+  for (var i = 0; i < kalimat.length; i++) {
+    for (var j=0 ; j < kalimat.length; j++) {
+      if (kalimat[j] > kalimat[j+1]) {
+        temp = kalimat[j];
+        kalimat[j] = kalimat[j+1];
+        kalimat[j+1] = temp;
+      }
+    }
+  } 
+  console.log(kalimat);
+  for (var i = 0; i < kalimat.length; i++) {
+    hasil += kalimat[i];
+  }
   return hasil;
 }
 
 
 // TEST CASES
 console.log(urutkanAbjad('hello')); // 'ehllo'
-// console.log(urutkanAbjad('truncate')); // 'acenrttu'
-// console.log(urutkanAbjad('developer')); // 'deeeloprv'
-// console.log(urutkanAbjad('software')); // 'aeforstw'
-// console.log(urutkanAbjad('aegis')); // 'aegis'
+console.log(urutkanAbjad('truncate')); // 'acenrttu'
+console.log(urutkanAbjad('developer')); // 'deeeloprv'
+console.log(urutkanAbjad('software')); // 'aeforstw'
+console.log(urutkanAbjad('aegis')); // 'aegis'
